@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sorting student records | Student Communication System</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="in"><a class="brand" href="index.html"><span>SCS</span>Student Communication System</a><nav><a href="index.html">Home</a><a href="design.html">Design</a><a href="topics.html" class=on>Topics</a><a href="output.html">Output</a><a href="about.html">About</a></nav></div></header><div class="in lay"><aside><b>Topics</b><a href="setup.html">Program setup and structures</a><a href="helpers.html">Input helper functions</a><a href="lookup.html">List, tree, hash and graph helpers</a><a href="registration.html">Student registration and display</a><a href="searching.html">Searching a student</a><a href="sorting.html" class=on>Sorting student records</a><a href="messaging.html">Messaging, chat history and undo</a><a href="group.html">Study group</a><a href="connections.html">Connections and shortest path</a><a href="notifications.html">Priority notifications</a><a href="hashing.html">Hash table search</a><a href="expressions.html">Expressions and Tower of Hanoi</a><a href="main.html">Clean-up and main function</a></aside><main><h1>Sorting student records</h1><p class="sub">Selection, insertion and radix sort</p><div class="meta"><div><small>Data structure</small>Arrays</div><div><small>Syllabus unit</small>Unit I</div><div><small>Menu option</small>4</div></div><p>Student pointers are copied into an array and sorted by selection sort (by ID), insertion sort (by name, ignoring case) or radix sort (by ID, one pass per digit).</p><h2>Source code</h2><h3>7.9 Sort Student Records (Option 4)</h3><div class="cw"><button class="cp">Copy</button><pre class="code"><code>static void print_sorted(Student *a[], int n)
+{
+    int i;
+    line('-', 50);
+    printf("%-12s %-20s %-4s\n", "ID", "NAME", "YEAR");
+    line('-', 50);
+    for (i = 0; i &lt; n; i++)
+        printf("%-12d %-20s %-4d\n", a[i]-&gt;id, a[i]-&gt;name, a[i]-&gt;year);
+    line('-', 50);
+}
+
+static void sort_students(void)
+{
+    Student *a[MAX_STUDENTS], *t, *tmp;
+    int n = 0, i, j, min, choice;
+
+    if (head == NULL) {
+        printf("No students registered yet.\n");
+        return;
+    }
+    for (t = head; t != NULL; t = t-&gt;next)
+        a[n++] = t;
+
+
+
+
+
+    printf("\n 1. Selection sort by ID\n");
+    printf(" 2. Insertion sort by name\n");
+    printf(" 3. Radix sort by ID\n");
+    choice = read_int("Enter your choice: ");
+
+    if (choice == 1) {
+        for (i = 0; i &lt; n - 1; i++) {
+            min = i;
+            for (j = i + 1; j &lt; n; j++)
+                if (a[j]-&gt;id &lt; a[min]-&gt;id)
+                     min = j;
+            tmp = a[i];
+            a[i] = a[min];
+            a[min] = tmp;
+        }
+        printf("Sorted by ID (selection sort):\n");
+        print_sorted(a, n);
+    } else if (choice == 2) {
+        for (i = 1; i &lt; n; i++) {
+            tmp = a[i];
+            j = i - 1;
+            while (j &gt;= 0 &amp;&amp; name_compare(a[j]-&gt;name, tmp-&gt;name) &gt; 0) {
+                a[j + 1] = a[j];
+                j--;
+            }
+            a[j + 1] = tmp;
+        }
+        printf("Sorted by name (insertion sort):\n");
+        print_sorted(a, n);
+    } else if (choice == 3) {
+        Student *out[MAX_STUDENTS];
+        int count[10];
+        long long exp;
+        int max = a[0]-&gt;id, d;
+
+        for (i = 1; i &lt; n; i++)
+            if (a[i]-&gt;id &gt; max)
+                max = a[i]-&gt;id;
+
+        for (exp = 1; max / exp &gt; 0; exp *= 10) {    /* one pass per digit */
+             for (d = 0; d &lt; 10; d++)
+                 count[d] = 0;
+             for (i = 0; i &lt; n; i++)
+                 count[(a[i]-&gt;id / exp) % 10]++;
+             for (d = 1; d &lt; 10; d++)
+                 count[d] += count[d - 1];
+             for (i = n - 1; i &gt;= 0; i--) {
+                 d = (int)((a[i]-&gt;id / exp) % 10);
+                 out[--count[d]] = a[i];
+             }
+             for (i = 0; i &lt; n; i++)
+                 a[i] = out[i];
+        }
+        printf("Sorted by ID (radix sort):\n");
+        print_sorted(a, n);
+    } else {
+        printf("Invalid choice.\n");
+    }
+}</code></pre></div><h2>Sample output</h2><h3>Output 4: Sorting student records</h3><p>The same records sorted by ID using selection sort, by name using insertion sort, and by ID using radix sort.</p><pre class="term">Enter your choice: 4
+
+   1. Selection sort by ID
+   2. Insertion sort by name
+   3. Radix sort by ID
+Enter your choice: 1
+Sorted by ID (selection sort):
+--------------------------------------------------
+ID            NAME                YEAR
+--------------------------------------------------
+78            Sahana              2
+202           Arun S              2
+74            Shrivathsan A       2
+138           Aakash V            2
+--------------------------------------------------
+
+Enter your choice: 4
+
+   1. Selection sort by ID
+   2. Insertion sort by name
+   3. Radix sort by ID
+Enter your choice: 2
+Sorted by name (insertion sort):
+--------------------------------------------------
+ID            NAME                YEAR
+--------------------------------------------------
+138           Aakash V            2
+202           Arun S              2
+78            Sahana              2
+74            Shrivathsan A       2
+--------------------------------------------------
+
+Enter your choice: 4
+
+   1. Selection sort by ID
+   2. Insertion sort by name
+   3. Radix sort by ID
+Enter your choice: 3
+Sorted by ID (radix sort):
+--------------------------------------------------
+ID            NAME                YEAR
+--------------------------------------------------
+78            Sahana              2
+202           Arun S              2
+74            Shrivathsan A       2
+138           Aakash V            2
+--------------------------------------------------</pre><div class="pn"><a href="searching.html"><small>Previous</small>Searching a student</a><a class="r" href="messaging.html"><small>Next</small>Messaging, chat history and undo</a></div></main></div><footer><div class="in">Student Communication System · IT23302 Data Structures Using C · Department of Information Technology, MIT Campus, Anna University<br>Shrivathsan A (2025506074) and Aakash V (2025506138)</div></footer><script src="app.js"></script></body></html>

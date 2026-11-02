@@ -1,0 +1,513 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Output | Student Communication System</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="in"><a class="brand" href="index.html"><span>SCS</span>Student Communication System</a><nav><a href="index.html">Home</a><a href="design.html">Design</a><a href="topics.html">Topics</a><a href="output.html" class=on>Output</a><a href="about.html">About</a></nav></div></header><div class="in narrow"><h1>Sample output</h1><p class="sub">Captured from real runs. Test students: Sahana (78), Arun S (202), Shrivathsan A (74) and Aakash V (138).</p><h2>Output 1: Main menu and student registration</h2><p>The main menu, followed by the registration of four students and the student table.</p><pre class="term">========================================
+     STUDENT COMMUNICATION SYSTEM
+========================================
+ 1. Student Registration
+ 2. Display Student Details
+ 3. Search Student
+ 4. Sort Student Records
+ 5. Send Message
+ 6. View Incoming Messages
+ 7. View Chat History
+ 8. Undo Recent Message
+ 9. Manage Student Groups
+10. Student Connections
+11. Find Connection Path
+12. Priority Notifications
+13. Hash Table Search
+14. Stack / Expression Demonstration
+ 0. Exit
+----------------------------------------
+Enter your choice: 1
+Enter student ID (positive number): 78
+Enter name            : Sahana
+Enter department      : Information Technology
+Enter year (1-4)      : 2
+Student registered successfully.
+
+Enter your choice: 1
+Enter student ID (positive number): 202
+Enter name           : Arun S
+Enter department     : Information Technology
+Enter year (1-4)     : 2
+Student registered successfully.
+
+Enter your choice: 1
+Enter student ID (positive number): 74
+Enter name           : Shrivathsan A
+Enter department     : Information Technology
+Enter year (1-4)     : 2
+Student registered successfully.
+
+Enter your choice: 1
+Enter student ID (positive number): 138
+Enter name           : Aakash V
+Enter department     : Information Technology
+Enter year (1-4)     : 2
+Student registered successfully.
+
+Enter your choice: 2
+----------------------------------------------------------------------
+ID           NAME                 DEPARTMENT               YEAR
+----------------------------------------------------------------------
+78           Sahana               Information Technology   2
+202          Arun S               Information Technology   2
+74           Shrivathsan A        Information Technology   2
+138          Aakash V             Information Technology   2
+----------------------------------------------------------------------
+Total students: 4</pre><h2>Output 2: Duplicate ID and wrong year (input checking)</h2><p>The program refuses a repeated ID and a wrong year, and asks again when letters are typed instead of a number.</p><pre class="term">Enter your choice: 1
+Enter student ID (positive number): 78
+A student with this ID already exists.
+
+Enter your choice: 1
+Enter student ID (positive number): 150
+Enter name           : Test Student
+Enter department     : IT
+Enter year (1-4)     : abc
+Please enter a valid number.
+Enter year (1-4)     : 7
+Year must be between 1 and 4.</pre><h2>Output 3: Searching a student (linear, binary and BST)</h2><p>The same kind of search done in three ways. The number of comparisons is shown each time.</p><pre class="term">Enter your choice: 3
+
+  1. Linear search (linked list)
+  2. Binary search (sorted array)
+  3. Binary search tree
+  4. Show all IDs in sorted order (BST inorder)
+Enter your choice: 1
+Enter student ID to search: 202
+Student found after 2 comparison(s):
+  ID: 202 | Name: Arun S | Department: Information Technology | Year: 2
+
+Enter your choice: 3
+
+  1. Linear search (linked list)
+  2. Binary search (sorted array)
+  3. Binary search tree
+  4. Show all IDs in sorted order (BST inorder)
+Enter your choice: 2
+Enter student ID to search: 138
+Student found after 3 comparison(s):
+  ID: 138 | Name: Aakash V | Department: Information Technology | Year: 2
+
+Enter your choice: 3
+
+  1. Linear search (linked list)
+  2. Binary search (sorted array)
+  3. Binary search tree
+  4. Show all IDs in sorted order (BST inorder)
+Enter your choice: 3
+Enter student ID to search: 999
+Record not found (3 comparison(s) made).
+
+Enter your choice: 3
+
+  1. Linear search (linked list)
+  2. Binary search (sorted array)
+  3. Binary search tree
+  4. Show all IDs in sorted order (BST inorder)
+Enter your choice: 4
+  ID           NAME
+  78           Sahana
+  202          Arun S
+  74           Shrivathsan A
+  138          Aakash V</pre><h2>Output 4: Sorting student records</h2><p>The same records sorted by ID using selection sort, by name using insertion sort, and by ID using radix sort.</p><pre class="term">Enter your choice: 4
+
+   1. Selection sort by ID
+   2. Insertion sort by name
+   3. Radix sort by ID
+Enter your choice: 1
+Sorted by ID (selection sort):
+--------------------------------------------------
+ID            NAME                YEAR
+--------------------------------------------------
+78            Sahana              2
+202           Arun S              2
+74            Shrivathsan A       2
+138           Aakash V            2
+--------------------------------------------------
+
+Enter your choice: 4
+
+   1. Selection sort by ID
+   2. Insertion sort by name
+   3. Radix sort by ID
+Enter your choice: 2
+Sorted by name (insertion sort):
+--------------------------------------------------
+ID            NAME                YEAR
+--------------------------------------------------
+138           Aakash V            2
+202           Arun S              2
+78            Sahana              2
+74            Shrivathsan A       2
+--------------------------------------------------
+
+Enter your choice: 4
+
+   1. Selection sort by ID
+   2. Insertion sort by name
+   3. Radix sort by ID
+Enter your choice: 3
+Sorted by ID (radix sort):
+--------------------------------------------------
+ID            NAME                YEAR
+--------------------------------------------------
+78            Sahana              2
+202           Arun S              2
+74            Shrivathsan A       2
+138           Aakash V            2
+--------------------------------------------------</pre><h2>Output 5: Sending, delivering and viewing messages</h2><p>Three messages are sent. They wait in the queue, the oldest one is delivered, and the chat history is shown in both directions.</p><pre class="term">Enter your choice: 5
+Sender ID   : 78
+Receiver ID : 202
+Message     : Hello Arun, are you ready for the lab?
+Message 1 sent from Sahana to Arun S.
+
+Enter your choice: 5
+Sender ID   : 202
+Receiver ID : 78
+Message     : Yes, I am ready.
+Message 2 sent from Arun S to Sahana.
+
+
+
+
+
+Enter your choice: 5
+Sender ID   : 74
+Receiver ID : 138
+Message     : Send me the report draft please.
+Message 3 sent from Shrivathsan A to Aakash V.
+
+Enter your choice: 6
+
+  1. Show pending messages
+  2. Deliver the oldest message
+Enter your choice: 1
+  1. [Msg 1] Sahana -&gt; Arun S : Hello Arun, are you ready for the lab?
+  2. [Msg 2] Arun S -&gt; Sahana : Yes, I am ready.
+  3. [Msg 3] Shrivathsan A -&gt; Aakash V : Send me the report draft please.
+Pending messages: 3
+
+Enter your choice: 6
+
+  1. Show pending messages
+  2. Deliver the oldest message
+Enter your choice: 2
+Delivered to Arun S: "Hello Arun, are you ready for the lab?" (from Sahana)
+
+Enter your choice: 7
+Enter a student ID to see only their chats (0 for all): 0
+  1. Oldest first
+  2. Newest first
+Enter your choice: 1
+  [Msg 1] Sahana -&gt; Arun S : Hello Arun, are you ready for the lab?
+  [Msg 2] Arun S -&gt; Sahana : Yes, I am ready.
+  [Msg 3] Shrivathsan A -&gt; Aakash V : Send me the report draft please.
+
+Enter your choice: 7
+Enter a student ID to see only their chats (0 for all): 78
+  1. Oldest first
+  2. Newest first
+Enter your choice: 2
+  [Msg 2] Arun S -&gt; Sahana : Yes, I am ready.
+  [Msg 1] Sahana -&gt; Arun S : Hello Arun, are you ready for the lab?</pre><h2>Output 6: Undo of the most recent messages</h2><p>Messages are undone one after another, the latest first. After the third undo, the stack is empty.</p><pre class="term">Enter your choice: 8
+Message 3 was undone and removed from the pending queue.
+
+Enter your choice: 7
+Enter a student ID to see only their chats (0 for all): 0
+  1. Oldest first
+  2. Newest first
+Enter your choice: 1
+  [Msg 1] Sahana -&gt; Arun S : Hello Arun, are you ready for the lab?
+  [Msg 2] Arun S -&gt; Sahana : Yes, I am ready.
+
+Enter your choice: 8
+Message 2 was undone and removed from the pending queue.
+
+Enter your choice: 8
+Message 1 was undone and removed from the pending queue.
+
+Enter your choice: 8
+Nothing to undo.</pre><h2>Output 7: Study group using a circular linked list</h2><p>The study group is a circular list. The current speaker moves to the next member, and removing the speaker passes the turn on.</p><pre class="term">Enter your choice: 9
+
+  1. Add a member
+  2. Remove a member
+  3. Show group members
+  4. Pass turn to next speaker
+Enter your choice: 1
+Enter student ID to add: 78
+Sahana added to the group.
+
+Enter your choice: 9
+
+  1. Add a member
+  2. Remove a member
+  3. Show group members
+  4. Pass turn to next speaker
+Enter your choice: 1
+Enter student ID to add: 202
+Arun S added to the group.
+
+Enter your choice: 9
+
+  1. Add a member
+  2. Remove a member
+  3. Show group members
+  4. Pass turn to next speaker
+Enter your choice: 1
+Enter student ID to add: 74
+Shrivathsan A added to the group.
+
+Enter your choice: 9
+
+  1. Add a member
+  2. Remove a member
+  3. Show group members
+  4. Pass turn to next speaker
+Enter your choice: 3
+  78   Sahana     &lt;-- current speaker
+  202 Arun S
+  74          Shrivathsan A
+
+Enter your choice: 9
+
+  1. Add a member
+  2. Remove a member
+  3. Show group members
+  4. Pass turn to next speaker
+Enter your choice: 4
+It is now Arun S's turn to speak.
+
+Enter your choice: 9
+
+  1. Add a member
+  2. Remove a member
+  3. Show group members
+  4. Pass turn to next speaker
+Enter your choice: 2
+Enter student ID to remove: 202
+Member removed from the group.
+
+Enter your choice: 9
+
+  1. Add a member
+  2. Remove a member
+
+
+
+
+
+  3. Show group members
+  4. Pass turn to next speaker
+Enter your choice: 3
+  78   Sahana
+  74          Shrivathsan A    &lt;-- current speaker</pre><h2>Output 8: Student connections and shortest path</h2><p>Connections are added, the network is displayed, BFS and DFS are run, and the shortest path from Sahana to Aakash V is found.</p><pre class="term">Enter your choice: 10
+
+  1. Add a connection
+  2. Display all connections
+  3. BFS traversal from a student
+  4. DFS traversal from a student
+Enter your choice: 1
+First student ID : 78
+Second student ID : 202
+Sahana and Arun S are now connected.
+
+Enter your choice: 10
+
+  1. Add a connection
+  2. Display all connections
+  3. BFS traversal from a student
+  4. DFS traversal from a student
+Enter your choice: 1
+First student ID : 202
+Second student ID : 74
+Arun S and Shrivathsan A are now connected.
+
+Enter your choice: 10
+
+  1. Add a connection
+  2. Display all connections
+  3. BFS traversal from a student
+  4. DFS traversal from a student
+Enter your choice: 1
+First student ID : 74
+Second student ID : 138
+Shrivathsan A and Aakash V are now connected.
+
+Enter your choice: 10
+
+  1. Add a connection
+  2. Display all connections
+  3. BFS traversal from a student
+  4. DFS traversal from a student
+Enter your choice: 1
+First student ID : 78
+Second student ID : 74
+Sahana and Shrivathsan A are now connected.
+
+Enter your choice: 10
+
+  1. Add a connection
+  2. Display all connections
+  3. BFS traversal from a student
+  4. DFS traversal from a student
+Enter your choice: 2
+  Sahana : Arun S, Shrivathsan A,
+  Arun S : Sahana, Shrivathsan A,
+  Shrivathsan A : Sahana, Arun S, Aakash V,
+  Aakash V : Shrivathsan A,
+
+Enter your choice: 10
+
+
+
+
+
+  1. Add a connection
+  2. Display all connections
+  3. BFS traversal from a student
+  4. DFS traversal from a student
+Enter your choice: 3
+Start student ID: 78
+BFS order: Sahana Arun S Shrivathsan A         Aakash V
+
+Enter your choice: 10
+
+  1. Add a connection
+  2. Display all connections
+  3. BFS traversal from a student
+  4. DFS traversal from a student
+Enter your choice: 4
+Start student ID: 78
+DFS order: Sahana Arun S Shrivathsan A         Aakash V
+
+Enter your choice: 11
+From student ID: 78
+To student ID : 138
+Shortest path (2 step(s)): Sahana -&gt; Shrivathsan A -&gt; Aakash V</pre><h2>Output 9: Priority notifications using a max heap</h2><p>Three notifications are added. They come out in the order of their priority, not in the order they were added.</p><pre class="term">Enter your choice: 12
+
+  1. Add a notification
+  2. Read the most urgent notification
+  3. Show all notifications (heap order)
+Enter your choice: 1
+Notification text: Fee payment last date tomorrow
+Priority (1 = low, 10 = very urgent): 6
+Notification added.
+
+Enter your choice: 12
+
+  1. Add a notification
+  2. Read the most urgent notification
+  3. Show all notifications (heap order)
+Enter your choice: 1
+Notification text: Lab record submission on Friday
+Priority (1 = low, 10 = very urgent): 9
+Notification added.
+
+Enter your choice: 12
+
+  1. Add a notification
+  2. Read the most urgent notification
+  3. Show all notifications (heap order)
+Enter your choice: 1
+Notification text: Library book return
+Priority (1 = low, 10 = very urgent): 3
+Notification added.
+
+Enter your choice: 12
+
+  1. Add a notification
+  2. Read the most urgent notification
+  3. Show all notifications (heap order)
+Enter your choice: 3
+  [0] priority 9 : Lab record submission on Friday
+  [1] priority 6 : Fee payment last date tomorrow
+  [2] priority 3 : Library book return
+
+Enter your choice: 12
+
+  1. Add a notification
+
+
+
+
+  2. Read the most urgent notification
+  3. Show all notifications (heap order)
+Enter your choice: 2
+Most urgent (priority 9): Lab record submission on Friday
+
+Enter your choice: 12
+
+  1. Add a notification
+  2. Read the most urgent notification
+  3. Show all notifications (heap order)
+Enter your choice: 2
+Most urgent (priority 6): Fee payment last date tomorrow</pre><h2>Output 10: Hash table with linear probing</h2><p>Each student ID goes to its own slot, so no collision occurs and the search needs only one probe.</p><pre class="term">Enter your choice: 13
+
+  1. Search a student ID using the hash table
+  2. Show the hash table
+Enter your choice: 1
+Enter student ID: 202
+Found in slot 0 after 1 probe(s): Arun S
+
+Enter your choice: 13
+
+  1. Search a student ID using the hash table
+  2. Show the hash table
+Enter your choice: 1
+Enter student ID: 5
+Not found (1 probe(s) made).
+
+Enter your choice: 13
+
+  1. Search a student ID using the hash table
+  2. Show the hash table
+Enter your choice: 2
+  TABLE SIZE = 101, hash(key) = key % 101
+  slot   0 : 202          Arun S              home slot 0
+  slot 37 : 138           Aakash V            home slot 37
+  slot 74 : 74            Shrivathsan A       home slot 74
+  slot 78 : 78            Sahana              home slot 78</pre><h2>Output 11: Postfix conversion, evaluation and Tower of Hanoi</h2><p>An infix expression is converted to postfix and evaluated. A division by zero and a wrong expression are handled, and the Tower of Hanoi is solved for three disks.</p><pre class="term">Enter your choice: 14
+
+  1. Infix to postfix, then evaluate
+  2. Tower of Hanoi
+Enter your choice: 1
+Enter infix expression (single-digit numbers, + - * / and brackets): (3+4)*5-6/2
+Postfix expression : 34+5*62/-
+Value               : 32
+
+Enter your choice: 14
+
+  1. Infix to postfix, then evaluate
+  2. Tower of Hanoi
+Enter your choice: 1
+Enter infix expression (single-digit numbers, + - * / and brackets): 8/(4-4)
+Postfix expression : 844-/
+Division by zero.
+
+Enter your choice: 14
+
+
+
+
+
+  1. Infix to postfix, then evaluate
+  2. Tower of Hanoi
+Enter your choice: 1
+Enter infix expression (single-digit numbers, + - * / and brackets): 3++
+Postfix expression : 3++
+Invalid expression.
+
+Enter your choice: 14
+
+  1. Infix to postfix, then evaluate
+  2. Tower of Hanoi
+Enter your choice: 2
+Number of disks (1-6): 3
+  Move disk 1 from A to C
+  Move disk 2 from A to B
+  Move disk 1 from C to B
+  Move disk 3 from A to C
+  Move disk 1 from B to A
+  Move disk 2 from B to C
+  Move disk 1 from A to C
+Total moves: 7</pre></div><footer><div class="in">Student Communication System · IT23302 Data Structures Using C · Department of Information Technology, MIT Campus, Anna University<br>Shrivathsan A (2025506074) and Aakash V (2025506138)</div></footer><script src="app.js"></script></body></html>
